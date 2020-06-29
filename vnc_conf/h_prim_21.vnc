@@ -1,6 +1,6 @@
 [Connection]
-Host=10.21.7.106
-Password=43fea0d32e4d92c5
+Host=10.41.16.21
+Password=d371475106803977
 [Options]
 UseLocalCursor=1
 UseDesktopResize=1
@@ -17,6 +17,6 @@ AcceptCutText=1
 DisableWinKeys=1
 Emulate3=0
 PointerEventInterval=0
-Monitor=\\.\DISPLAY1
+Monitor=\\.\DISPLAY3
 MenuKey=F8
 AutoReconnect=1

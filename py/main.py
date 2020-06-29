@@ -15,6 +15,8 @@ def home():
         sites("barnum")
     if menu == "Saratoga":
         sites("saratoga")
+    if menu == "Hazelwood":
+        sites("hazelwood")
     if menu == 'Exit':
         exit()
 
