@@ -105,6 +105,14 @@ hosts = {
                 "description" : "Hazelwood Primary"
             }
                 },
+    "chicago" : {
+        "ch_IT_51" : {
+            "host":"10.61.6.103",
+            "pass":"011890",
+            "vnc" : "vncviewer.exe -config vnc_conf/ch_10_61_6_103.vnc",
+            "description" : "Chicago Shipping"
+        }
+    }
         }
 
 # instructions = {

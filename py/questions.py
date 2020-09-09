@@ -20,7 +20,7 @@ def home_menu():
         "type" : "list",
         "name" : "home",
         "message" : "Please pick the site:",
-        "choices" : ['Saratoga', "Barnum", 'Jackson', 'Hazelwood','Exit']
+        "choices" : ['Saratoga', "Barnum", 'Jackson', 'Hazelwood','Chicago','Exit']
     }
     menu = prompt(home_prompt,style = style)
 
