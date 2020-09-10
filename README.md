@@ -1,5 +1,6 @@
 # Insperity
 **Insperity clocks script.**
+
 **If you found one of the newer (IT51 model) terminal down, proceed with a next steps:**
 
 *If you using this a first time, make sure you installed Python, either from the root folder or from the official website. Then:*
