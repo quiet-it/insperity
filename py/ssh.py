@@ -5,7 +5,13 @@ from hosts import *
 import sys,os
 from main import *
 
+
+
 def connect(site,clock='',command="/usr/bin/service"):
+    # print(clock)
+    # print(hosts[site][clock]['host'])
+    # print(hosts[site][clock]['pass'])
+
     if clock == '':
         for item in hosts[site]:
             print(hosts[site][item]['host'])
@@ -15,16 +21,34 @@ def connect(site,clock='',command="/usr/bin/service"):
             client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
             client.load_system_host_keys()
             client.get_host_keys()
-            client.connect(host, username='root', password=password)
-            stdin, stdout, stderr = client.exec_command(command)
-            print(str(stdout.read(),encoding='ascii'))
-            client.close()
+            try:
+                client.connect(host, username='root', password=password)
+                stdin, stdout, stderr = client.exec_command(command)
+                print(str(stdout.read(),encoding='ascii'))
+                client.close()
+            except Exception as e:
+                exception_handle(clock,host,password)
+
     else:
         client = paramiko.SSHClient()
         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
         client.load_system_host_keys()
         client.get_host_keys()
-        client.connect(hosts[site][clock]['host'], username='root', password=hosts[site][clock]['pass'])
-        stdin, stdout, stderr = client.exec_command(command)
-        print(str(stdout.read(),encoding='ascii'))
-        client.close()
+        try:
+            client.connect(hosts[site][clock]['host'], username='root', password=hosts[site][clock]['pass'])
+            stdin, stdout, stderr = client.exec_command(command)
+            print(str(stdout.read(),encoding='ascii'))
+            client.close()
+        except Exception as e:
+            exception_handle(clock,hosts[site][clock]['host'],hosts[site][clock]['pass'])
+
+
+
+def exception_handle(clock,host,password):
+
+    print("----------------ERROR-------------------")
+    print("SSH can't reach the host")
+    print("Telnet to the host and check SSH service")
+    print("Example: telnet "+host+" ; user - root ; password - "+password+" ; service ssh on")
+    print("Or report to you administrator")
+    print("----------------------------------------")
