@@ -10,11 +10,13 @@ def get_creds(site,clock=''):
         for item in hosts[site]:
             host = hosts[site][item]['host']
             password = hosts[site][item]['pass']
-            print('Host '+host+' password is: '+password)
+            name = connect(site,item,'uname -a')
+            cred_print(host,password,name)
     else:
         host = hosts[site][clock]['host']
         password = hosts[site][clock]['pass']
-        print('Host '+host+' password is: '+password)
+        name = connect(site,clock,'uname -a')
+        cred_print(host,password,name)
 
 def connect(site,clock='',command="/usr/bin/service"):
     # print(clock)
@@ -61,3 +63,8 @@ def exception_handle(clock,host,password):
     print("Example: telnet "+host+" ; user - root ; password - "+password+" ; service ssh on")
     print("Or report to you administrator")
     print("----------------------------------------")
+
+def cred_print(host,password,info):
+    print('-----------------------------')
+    print('Host '+host+' password is: '+password)
+    print('Host info: ')
