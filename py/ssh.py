@@ -5,7 +5,16 @@ from hosts import *
 import sys,os
 from main import *
 
-
+def get_creds(site,clock=''):
+    if clock == '':
+        for item in hosts[site]:
+            host = hosts[site][item]['host']
+            password = hosts[site][item]['pass']
+            print('Host '+host+' password is: '+password)
+    else:
+        host = hosts[site][clock]['host']
+        password = hosts[site][clock]['pass']
+        print('Host '+host+' password is: '+password)
 
 def connect(site,clock='',command="/usr/bin/service"):
     # print(clock)

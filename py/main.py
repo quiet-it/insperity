@@ -40,6 +40,11 @@ def sites(site):
     elif site_menu == "Service":
         connect(site,'','service')
         back()
+        sites(site)
+    elif site_menu == "Credentials":
+        get_creds(site)
+        back()
+        sites(site)
     elif site_menu == "Clocks":
         clocks(site)
 
@@ -72,6 +77,10 @@ def one_clock(name, description,site):
         connect(site,name,'service')
         back()
         one_clock(name,description,site)
+    elif menu == "Credentials":
+        get_creds(site,name)
+        back()
+        one_clock(name,description,site)
     elif menu == "Watch":
         print("Remember to close VNC window to exit!")
         os.system(hosts[site][name]['vnc'])
@@ -89,6 +98,7 @@ def watch_all_clocks(site):
 
 def back():
     menu = back_menu()
+    print(menu)
     if menu == "Back":
         return
 

@@ -33,7 +33,7 @@ def menu(site):
         "type" : "list",
         "name" : site+"_menu",
         "message" : "What you want to do next?",
-        "choices" : ['Home', 'Watch all clocks', 'Clocks', "Reboot all clocks", "Service"]
+        "choices" : ['Home', 'Watch all clocks', 'Clocks', "Reboot all clocks", "Service","Credentials"]
     }
     menu = prompt(questions,style = style)
     return menu[ site + '_menu']
@@ -71,7 +71,7 @@ def one_clock_menu(name, description):
         "type" : "list",
         "name" : name+"_menu",
         "message" : "This clock name: "+description,
-        "choices" : ['Home', "Watch", 'Restart', 'Logs', "Service", "Back"]
+        "choices" : ['Home', "Watch", 'Restart', "Credentials",'Logs', "Service", "Back"]
     }
     menu = prompt(questions,style = style)
     return menu[ name + '_menu']
